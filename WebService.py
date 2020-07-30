@@ -22,8 +22,8 @@ def webhook():
     body = json.loads(bytesData)
 
     # USED FOR VERBOSE LOGGING
-    print(json.dumps(body, indent=4, sort_keys=True))
-    print("----------------------------")
+    #print(json.dumps(body, indent=4, sort_keys=True))
+    #print("----------------------------")
 
     event_name = body['event_name']
     event_data = body['event_data']

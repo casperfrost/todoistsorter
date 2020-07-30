@@ -11,6 +11,7 @@ class Sorter:
         self.token = api_token
         self.api = TodoistAPI(api_token)
         self.api.sync()
+
         self.project_id = project_id
         self.dbfilename = 'Todoist.db'
         self.dbtableprefix = 'Sections_'
@@ -44,6 +45,7 @@ class Sorter:
     def get_historic_section(self, item_id):
         item = self.api.items.get_by_id(item_id)
 
+        self.initialize_db()
         conn = sqlite3.connect(self.dbfilename)
         selectQuery = "SELECT item_content, item_section FROM {} WHERE item_content = '{}' LIMIT 1".format(self.dbtablename, item['content'].lower())
         db = conn.cursor()
