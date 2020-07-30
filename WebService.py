@@ -34,7 +34,7 @@ def webhook():
 
     if event_name == "item:added" and str(project_id) == str(project):
         print(timestamp, event_name, event_data['content'])
-        api = Sorter(api_token)
+        api = Sorter(api_token, project_id)
         api.capitalize_item(item_id)
         api.learn()
         api.adjust_item_section(item_id)
