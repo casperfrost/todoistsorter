@@ -22,8 +22,8 @@ def webhook():
     body = json.loads(bytesData)
 
     # USED FOR VERBOSE LOGGING
-    # print(json.dumps(body, indent=4, sort_keys=True))
-    # print("----------------------------")
+    print(json.dumps(body, indent=4, sort_keys=True))
+    print("----------------------------")
 
     event_name = body['event_name']
     event_data = body['event_data']
@@ -31,15 +31,16 @@ def webhook():
     project_id = event_data['project_id']
 
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-    print(timestamp, event_name, event_data['content'])
 
     if event_name == "item:added" and project_id == project:
+        print(timestamp, event_name, event_data['content'])
         api = Sorter(api_token)
         api.capitalize_item(item_id)
         api.learn()
         api.adjust_item_section(item_id)
 
-    if (event_name == "item:completed" or event_name == "item:updated") and project_id == project:
+    if (event_name == "item:completed" or event_name == "item:updated") and str(project_id) == str(project):
+        print(timestamp, event_name, event_data['content'])
         api = Sorter(api_token, project_id)
         api.learn()
 
