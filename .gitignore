@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/dbnavigator.xml
+.idea/dictionaries/Frost_Casper.xml
+
+
+
+# MANUALLY ADDED
+.idea/
