@@ -32,7 +32,7 @@ def webhook():
 
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
-    if event_name == "item:added" and project_id == project:
+    if event_name == "item:added" and str(project_id) == str(project):
         print(timestamp, event_name, event_data['content'])
         api = Sorter(api_token)
         api.capitalize_item(item_id)
