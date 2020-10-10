@@ -84,6 +84,7 @@ Built With
 * Python v 3.8
 * Alpine Linux
 * Todoist Sync API v8
+* SQLite3
 
 Authors
 ----------
