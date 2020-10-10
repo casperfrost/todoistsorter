@@ -67,7 +67,7 @@ services:
 
 Docker Run
 ~~~
-docker run -p 5000:5000 --restart unless-stopped -e API-TOKEN=**INSERT API-TOKEN HERE**-e PROJECT=**INSERT PROJECT HERE** casperfrost/todoistsorter
+docker run -p 5000:5000 --restart unless-stopped -e API-TOKEN=**INSERT API-TOKEN HERE**-e PROJECT=**INSERT PROJECT-ID HERE** casperfrost/todoistsorter
 ~~~
 Feature wishlist
 -----------
