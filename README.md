@@ -44,7 +44,7 @@ Container parameters
 
 
 
-Docker-compose
+Docker Compose
 --------------
 ~~~
 version: "3.3"
