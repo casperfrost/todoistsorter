@@ -66,9 +66,12 @@ services:
 
 
 Docker Run
+--------------
 ~~~
 docker run -p 5000:5000 --restart unless-stopped -e API-TOKEN=**INSERT API-TOKEN HERE**-e PROJECT=**INSERT PROJECT-ID HERE** casperfrost/todoistsorter
 ~~~
+
+
 Feature wishlist
 -----------
 When I get time, these are the upcoming features I plan to develop:
@@ -79,7 +82,7 @@ When I get time, these are the upcoming features I plan to develop:
 - [ ] Add note/label to indicate how item was added (e.g. voice or manual input)
 
 
-Built With
+Built Using
 --------------
 * Python v 3.8
 * Alpine Linux
