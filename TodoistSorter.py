@@ -13,7 +13,7 @@ class Sorter:
         self.api.sync()
 
         self.project_id = project_id
-        self.dbfilename = 'Todoist.db'
+        self.dbfilename = 'data/Todoist.db'
         self.dbtableprefix = 'Sections_'
         self.dbtablename = self.dbtableprefix + str(project_id)
 
