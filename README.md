@@ -80,7 +80,7 @@ When I get time, these are the upcoming features I plan to develop:
 - [ ] Allow for minor discrepancies in naming of an item
 - [ ] Support for multi project monitoring
 - [ ] Add note/label to indicate how item was added (e.g. voice or manual input)
-
+- [ ] Translate list item to another language (for language training purposes)
 
 Built Using
 --------------
