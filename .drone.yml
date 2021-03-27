@@ -7,18 +7,13 @@ platform:
   arch: arm64
   
 steps:
-- name: build and push docker image
-  image: docker:latest
-  volumes:
-    - name: docker_sock
-      path: /var/run/docker.sock
-  commands:
-    - docker build --no-cache -t casperfrost/todoistsorter:dev .
-    - docker push
-  
-
-#- name: greeting
-#  image: python:3.8-alpine
-#  commands:
-#  - echo hello
-#  - echo world
+- name: docker  
+  image: plugins/docker
+  settings:
+    repo: casperfrost/todoistsorter
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    tags: dev
+    dry_run: true
