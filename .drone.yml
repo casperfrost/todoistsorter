@@ -16,4 +16,4 @@ steps:
     password:
       from_secret: docker_password
     tags: dev
-    dry_run: true
+    dry_run: false
