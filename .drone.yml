@@ -7,8 +7,18 @@ platform:
   arch: arm64
   
 steps:
-- name: greeting
-  image: python:3.8-alpine
-  commands:
-  - echo hello
-  - echo world
+- name: build and push docker image
+    image: docker:latest
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
+    commands:
+      - docker build --no-cache -t casperfrost/todoistsorter:dev .
+      - docker push
+  
+
+#- name: greeting
+#  image: python:3.8-alpine
+#  commands:
+#  - echo hello
+#  - echo world
