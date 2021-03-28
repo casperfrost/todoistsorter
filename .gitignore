@@ -134,3 +134,5 @@ dmypy.json
 
 # MANUALLY ADDED
 .idea/
+docker-compose.yaml
+/data
