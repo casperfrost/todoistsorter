@@ -32,16 +32,6 @@ class Sorter:
         # RETURN FALSE IF NO MATCH IS FOUND
         return False
 
-    def capitalize_item(self, item_id):
-        item_content = self.api.items.get_by_id(item_id)['content']
-        if not item_content[0].isupper():
-            new_content = item_content[0].upper() + item_content[1:]
-
-            # WRITE UPDATED CONTENT TO TODOIST
-            item = self.api.items.get_by_id(item_id)
-            item.update(content=new_content)
-            self.api.commit()
-
     def get_historic_section(self, item_id):
         item = self.api.items.get_by_id(item_id)
 
@@ -56,6 +46,23 @@ class Sorter:
             return result[1]
         else:
             return None
+
+    def capitalize_item(self, item_id):
+        item_content = self.api.items.get_by_id(item_id)['content']
+        if not item_content[0].isupper():
+            new_content = item_content[0].upper() + item_content[1:]
+
+            # WRITE UPDATED CONTENT TO TODOIST
+            item = self.api.items.get_by_id(item_id)
+            item.update(content=new_content)
+            self.api.commit()
+
+    def clean_item(self, item_id):
+        # TODO
+        item_content = self.api.items.get_by_id(item_id)['content']
+        item_content_clean = ''.join([i for i in item_content if not i.isdigit()])
+        return item_content_clean
+
 
     def learn(self):
         self.initialize_db()
@@ -74,7 +81,7 @@ class Sorter:
 
                 if historic_section is None:  # ADD ITEM TO DB
                     query = "INSERT INTO {} (item_project, item_content, item_section, last_updated) VALUES ({},'{}',{}, '{}')".format(self.dbtablename, item['project_id'], item['content'].lower(),
-                                                                                                                                   item['section_id'], timestamp)
+                                                                                                                                       item['section_id'], timestamp)
 
                 if historic_section is not None and historic_section != item['section_id']:  # UPDATE CURRENT SECTION
                     query = "UPDATE {} SET item_section = {}, last_updated = '{}' WHERE item_content = '{}'".format(self.dbtablename, item['section_id'], timestamp, item['content'].lower())
